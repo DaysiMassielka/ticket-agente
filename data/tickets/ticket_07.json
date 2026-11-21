@@ -1,0 +1,7 @@
+{
+  "id": 7,
+  "asunto": "Error al pagar",
+  "cuerpo": "Intento pagar la reserva 1005 y me sale error del servidor siempre. Lo he probado tres veces, desde el móvil y desde el ordenador. Irene Vidal, irene.vidal@example.com",
+  "cliente_email": "irene.vidal@example.com",
+  "creado": "2026-11-21 09:00:00"
+}

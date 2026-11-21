@@ -1,0 +1,7 @@
+{
+  "id": 9,
+  "asunto": "Integración con nuestro ERP",
+  "cuerpo": "Somos una agencia con 40 empleados y queremos sincronizar automáticamente nuestro ERP con vuestro sistema. ¿Ofrecéis una integración propia? ¿Qué coste tendría? Contacto: compras@agenciaviajes.example.com",
+  "cliente_email": "compras@agenciaviajes.example.com",
+  "creado": "2026-11-21 09:00:00"
+}

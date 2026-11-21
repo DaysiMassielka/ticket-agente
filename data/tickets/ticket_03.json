@@ -1,0 +1,7 @@
+{
+  "id": 3,
+  "asunto": "No puedo entrar",
+  "cuerpo": "Buenas, no consigo iniciar sesión desde ayer por la noche, me dice que mi cuenta está bloqueada. Mi correo es carlos.ruiz@example.com. Un saludo.",
+  "cliente_email": "carlos.ruiz@example.com",
+  "creado": "2026-11-21 09:00:00"
+}

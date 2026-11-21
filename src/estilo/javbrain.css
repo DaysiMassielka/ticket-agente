@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Tema visual "oscuro + amarillo" para los ejercicios de la entrevista.
+   Inspirado en las piezas de presentación de JAV BRAIN (fondo azul-negro con
+   red neuronal, titulares en sans condensada muy gruesa con la palabra clave en
+   amarillo, etiquetas pequeñas en mayúsculas con espaciado). No usa su logo.
+
+   Uso: enlaza este archivo y añade las fuentes en el <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   Sin conexión se usan las fuentes de reserva del sistema (Arial Narrow / Impact).
+   ========================================================================== */
+
+:root {
+  /* Fondos */
+  --fondo: #04070d;
+  --fondo-2: #08111f;
+  --tarjeta: rgba(255, 255, 255, 0.045);
+  --tarjeta-fuerte: rgba(255, 255, 255, 0.08);
+  --linea: rgba(255, 255, 255, 0.11);
+  /* Texto */
+  --tinta: #f4f6fa;
+  --tenue: #9aa6b8;
+  /* Acento (el amarillo de los titulares y las cifras) */
+  --acento: #ffd400;
+  --acento-suave: rgba(255, 212, 0, 0.12);
+  /* Semánticos, vivos sobre fondo oscuro */
+  --ok: #3ddc97;     --ok-f: rgba(61, 220, 151, 0.14);
+  --aviso: #ffb703;  --aviso-f: rgba(255, 183, 3, 0.14);
+  --error: #ff6161;  --error-f: rgba(255, 97, 97, 0.14);
+  --info: #6bb4ff;   --info-f: rgba(107, 180, 255, 0.14);
+  /* Tipografía */
+  --f-titulo: "Barlow Condensed", "Oswald", "Arial Narrow", Impact, sans-serif;
+  --f-texto: "Inter", system-ui, "Segoe UI", sans-serif;
+  --f-codigo: Consolas, "Cascadia Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--tinta);
+  font-family: var(--f-texto);
+  line-height: 1.5;
+  background-color: var(--fondo);
+  /* Brillo azul de la "red neuronal" en las esquinas */
+  background-image:
+    radial-gradient(900px 520px at 88% -8%, rgba(18, 74, 140, 0.55), transparent 60%),
+    radial-gradient(760px 480px at -8% 108%, rgba(10, 52, 110, 0.5), transparent 60%),
+    linear-gradient(180deg, var(--fondo-2), var(--fondo) 42%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+/* Malla de puntos muy tenue, a modo de red */
+body::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(rgba(140, 190, 255, 0.16) 1px, transparent 1.2px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse at 80% 0%, #000 0%, transparent 62%);
+  -webkit-mask-image: radial-gradient(ellipse at 80% 0%, #000 0%, transparent 62%);
+}
+
+main { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 36px 18px 70px; }
+
+/* Cabecera tipo portada de carrusel */
+.etiqueta {
+  margin: 0 0 14px;
+  font-family: var(--f-texto);
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--tenue);
+}
+.etiqueta .punto { color: var(--acento); }
+h1 {
+  margin: 0 0 14px;
+  font-family: var(--f-titulo); font-weight: 800;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 0.98; letter-spacing: -0.012em;
+}
+h1 .acento, .acento { color: var(--acento); }
+h2 {
+  margin: 4px 0 14px;
+  font-family: var(--f-titulo); font-weight: 800;
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem); line-height: 1.05; letter-spacing: -0.005em;
+}
+.sub { color: var(--tenue); margin: 0 0 18px; font-size: 1.02rem; max-width: 62ch; }
+.sub b { color: var(--tinta); }
+
+/* Bloques */
+section {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Etiquetas de estado y modo */
+.badge {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.badge.claude { background: var(--info-f); color: var(--info); }
+.badge.offline { background: var(--aviso-f); color: var(--aviso); }
+.badge.error { background: var(--error-f); color: var(--error); }
+.nota {
+  margin: 12px 0 0; padding: 10px 14px;
+  border-left: 3px solid var(--acento); background: var(--acento-suave);
+  border-radius: 6px; font-size: 0.92rem; color: var(--tinta);
+}
+
+/* Botones: principal amarillo, secundario con borde */
+button {
+  font: inherit; font-weight: 700; letter-spacing: 0.01em;
+  padding: 10px 18px; border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--acento); background: var(--acento); color: #0a0d14;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+button:hover { box-shadow: 0 0 0 4px var(--acento-suave); }
+button:active { transform: translateY(1px); }
+button.sec { background: transparent; color: var(--acento); }
+button.sec:hover { background: var(--acento-suave); }
+button:disabled { opacity: 0.5; cursor: wait; }
+button:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+/* Formularios */
+textarea, select {
+  font: inherit; color: var(--tinta);
+  background: #060d19; border: 1px solid var(--linea); border-radius: 10px;
+}
+textarea { width: 100%; min-height: 190px; font-family: var(--f-codigo); font-size: 0.9rem; padding: 12px; }
+select { padding: 8px 10px; }
+select option { background: #0a1322; color: var(--tinta); }
+textarea::placeholder { color: var(--tenue); }
+.fila { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 12px 0; }
+label { color: var(--tenue); font-size: 0.9rem; }
+
+/* Tablas */
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 10px 10px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+th {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--tenue); background: transparent; border-bottom: 1px solid rgba(255, 212, 0, 0.35);
+}
+tbody tr:hover { background: var(--tarjeta); }
+td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Estados de factura */
+.estado { padding: 3px 11px; border-radius: 999px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; letter-spacing: 0.04em; text-transform: uppercase; }
+.estado.conciliada { background: var(--ok-f); color: var(--ok); }
+.estado.revision { background: var(--aviso-f); color: var(--aviso); }
+.estado.fallida { background: var(--error-f); color: var(--error); }
+
+/* Tarjetas de métricas: cifra grande en condensada, como el "34 %" de las piezas */
+.tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
+.tarjeta { border: 1px solid var(--linea); border-radius: 14px; padding: 14px 16px; background: var(--tarjeta-fuerte); }
+.tarjeta b { display: block; font-family: var(--f-titulo); font-weight: 800; font-size: 3rem; line-height: 1; color: var(--acento); }
+.tarjeta span { display: block; margin-top: 6px; color: var(--tenue); font-size: 0.85rem; }
+.tarjeta.verde b { color: var(--ok); }
+.tarjeta.ambar b { color: var(--aviso); }
+.tarjeta.rojo b { color: var(--error); }
+
+/* Mensajes */
+.error-msg { color: var(--error); background: var(--error-f); padding: 10px 14px; border-radius: 8px; margin-top: 12px; }
+.vacio { color: var(--tenue); font-style: italic; }
+dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 10px 0; }
+dt { color: var(--tenue); } dd { margin: 0; }
+small { color: var(--tenue); }
+b { font-weight: 700; }
+
+/* Pie */
+.pie { position: relative; z-index: 1; margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--linea);
+       font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tenue); }
+
+/* ==========================================================================
+   Formularios de edición (corrección humana de datos)
+   ========================================================================== */
+input {
+  font: inherit; color: var(--tinta); color-scheme: dark;
+  background: #060d19; border: 1px solid var(--linea); border-radius: 10px;
+  padding: 9px 12px; min-width: 0;
+}
+input::placeholder { color: var(--tenue); }
+input:focus-visible { outline: 2px solid var(--acento); outline-offset: 1px; }
+input[type="search"] { flex: 1 1 280px; }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--error); box-shadow: 0 0 0 3px var(--error-f); }
+
+/* Panel de edición: texto original a un lado, formulario al otro */
+.editor {
+  margin: 14px 0 20px; padding: 18px;
+  border: 1px solid rgba(255, 212, 0, 0.35); border-radius: 14px; background: var(--acento-suave);
+}
+.editor.guardado { border-color: rgba(61, 220, 151, 0.4); background: var(--ok-f); }
+.columnas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 22px; margin-top: 10px; }
+@media (max-width: 760px) { .columnas { grid-template-columns: 1fr; } }
+.editor h3 { margin: 0 0 8px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tenue); }
+.editor h3 small { text-transform: none; letter-spacing: 0; }
+pre.original {
+  margin: 0; padding: 12px; white-space: pre-wrap; overflow-wrap: anywhere;
+  font-family: var(--f-codigo); font-size: 0.86rem; line-height: 1.55;
+  background: #060d19; border: 1px solid var(--linea); border-radius: 10px; color: var(--tinta);
+}
+form label { display: flex; flex-direction: column; gap: 5px; margin: 0 0 12px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+form label input { text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 0.95rem; }
+#calc { display: block; margin: -4px 0 12px; }
+.error-msg ul { margin: 4px 0 0; padding-left: 18px; }
+code { font-family: var(--f-codigo); font-size: 0.88em; color: var(--acento); }
+.estado.corregida { background: var(--info-f); color: var(--info); }
+
+/* Importe sugerido: tarjeta con la cifra actual tachada y la correcta en grande */
+.sugerencia { margin: 12px 0 16px; padding: 16px 18px; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: 12px; background: var(--tarjeta-fuerte); }
+.sugerencia.conf-alta { border-left-color: var(--ok); }
+.sugerencia.conf-media { border-left-color: var(--aviso); }
+.sugerencia.conf-baja { border-left-color: var(--error); }
+.sugerencia.sin { border-left-color: var(--tenue); }
+.sugerencia .etiqueta { margin-bottom: 8px; }
+.cifras { display: flex; flex-wrap: wrap; gap: 14px 28px; margin: 4px 0 10px; }
+.cifra small { display: block; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.7rem; font-weight: 700; }
+.cifra s { display: block; color: var(--tenue); font-size: 0.95rem; }
+.cifra b { display: block; font-family: var(--f-titulo); font-weight: 800; font-size: 2.6rem; line-height: 1; color: var(--acento); }
+.sugerencia.conf-alta .cifra b { color: var(--ok); }
+.calculo { margin: 0 0 6px; font-family: var(--f-codigo); font-size: 0.9rem; color: var(--tinta); }
+.conf { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.7rem; }
+.conf-alta.conf, .conf.conf-alta { color: var(--ok); }
+.conf.conf-media { color: var(--aviso); }
+.conf.conf-baja { color: var(--error); }
+.sugerido-num { color: var(--acento); font-family: var(--f-titulo); font-size: 1.25rem; }
+input.sugerido { border-color: var(--acento); box-shadow: 0 0 0 3px var(--acento-suave); }
+
+/* Registro de compras junto al texto original: la línea que sirve de fuente va resaltada */
+table.registro { font-size: 0.82rem; margin-top: 4px; }
+table.registro th, table.registro td { padding: 6px 8px; }
+table.registro tr.elegida td { background: var(--acento-suave); color: var(--tinta); }
+table.registro tr.elegida td:first-child { box-shadow: inset 3px 0 0 var(--acento); }
+.editor h3 + .tabla-scroll { margin-bottom: 4px; }
+.columnas > div > h3:not(:first-child) { margin-top: 16px; }

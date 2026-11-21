@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "asunto": "Cobro duplicado reserva 1001",
+  "cuerpo": "Hola, soy Sofía Ramos (sofia.ramos@example.com). Me han cargado 120 € dos veces por la reserva 1001, los dos cargos con la misma referencia en mi extracto. Quiero que me devolváis uno. Gracias.",
+  "cliente_email": "sofia.ramos@example.com",
+  "creado": "2026-11-21 09:00:00"
+}

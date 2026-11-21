@@ -1,0 +1,11 @@
+ticket_id,prioridad,area,accion,runbook_esperado,sospechoso
+1,P2,SQL,escalar,RB-01,no
+2,P3,negocio,responder,RB-01,no
+3,P3,SQL,responder,RB-02,no
+4,P3,SQL,escalar,RB-02,no
+5,P2,SQL,escalar,RB-03,no
+6,P4,negocio,responder,RB-03,no
+7,P1,API,escalar,RB-04,no
+8,P4,negocio,responder,RB-05,no
+9,P4,negocio,escalar,,no
+10,P3,SQL,escalar,RB-02,si
