@@ -4,6 +4,12 @@ Agente de triaje de incidencias de soporte: **clasifica un ticket, lo investiga 
 
 Es un ejercicio de portfolio. **Todos los datos son ficticios** (una plataforma de reservas inventada, "Reservas Demo").
 
+## Demo en línea
+
+**https://ticket-agente.onrender.com**
+
+La demo muestra la interfaz para clientes y funciona sin clave de IA (modo `offline`, con reglas). Está en el plan gratuito de Render: si lleva un rato sin visitas, la primera carga puede tardar 50 segundos o más. No tiene inicio de sesión, así que no escribas datos reales.
+
 ## Qué resuelve y por qué: el modelo propone, el código controla, la persona aprueba
 
 Un equipo de soporte diagnostica cada ticket a mano: consulta la base de datos, busca el procedimiento en el wiki y redacta la respuesta o escala a Jira. Es lento y repetitivo. Aquí se reparte el trabajo según quién debe responder de qué:
